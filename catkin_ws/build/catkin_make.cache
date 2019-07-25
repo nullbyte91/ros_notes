@@ -1,0 +1,2 @@
+example_1
+-DCATKIN_DEVEL_PREFIX=/home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/install -G Unix Makefiles

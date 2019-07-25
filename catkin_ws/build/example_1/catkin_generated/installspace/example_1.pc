@@ -1,0 +1,8 @@
+prefix=/home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/install
+
+Name: example_1
+Description: Description of example_1
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/install/lib 
+Requires: 
