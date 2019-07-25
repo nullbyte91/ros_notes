@@ -2,14 +2,14 @@
 
 int main(int argc, char **argv){
     ros::init(argc, argv, "first_node_name");
-    
     ros::NodeHandle nh;
-
     ROS_INFO("Node has been started");
-    
-    ros::Duration(1.0);
 
-    ROS_INFO("exit");
+    ros::Rate rate(10);
 
+    while(ros::ok()){
+        ROS_INFO("sending a signal");
+        rate.sleep();
+    }
     return 0;
 }

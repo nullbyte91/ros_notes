@@ -136,7 +136,8 @@ include_directories(
 # add_executable(${PROJECT_NAME}_node src/example_1_node.cpp)
 
 add_executable(test_node src/node_1.cpp)
-
+add_executable(transmitter src/transmitter.cpp)
+add_executable(subscriber src/subscriber.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -153,6 +154,8 @@ add_executable(test_node src/node_1.cpp)
 # )
 
 target_link_libraries(test_node ${catkin_LIBRARIES})
+target_link_libraries(transmitter ${catkin_LIBRARIES})
+target_link_libraries(subscriber ${catkin_LIBRARIES})
 #############
 ## Install ##
 #############

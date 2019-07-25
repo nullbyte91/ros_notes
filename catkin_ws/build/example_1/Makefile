@@ -66,16 +66,17 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -87,6 +88,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # Special rule for the target test
 test:
@@ -120,18 +132,6 @@ install/local: preinstall
 install/local/fast: install/local
 
 .PHONY : install/local/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -405,6 +405,36 @@ test_node/fast:
 	cd /home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/build && $(MAKE) -f example_1/CMakeFiles/test_node.dir/build.make example_1/CMakeFiles/test_node.dir/build
 .PHONY : test_node/fast
 
+# Convenience name for target.
+example_1/CMakeFiles/transmitter.dir/rule:
+	cd /home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 example_1/CMakeFiles/transmitter.dir/rule
+.PHONY : example_1/CMakeFiles/transmitter.dir/rule
+
+# Convenience name for target.
+transmitter: example_1/CMakeFiles/transmitter.dir/rule
+
+.PHONY : transmitter
+
+# fast build rule for target.
+transmitter/fast:
+	cd /home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/build && $(MAKE) -f example_1/CMakeFiles/transmitter.dir/build.make example_1/CMakeFiles/transmitter.dir/build
+.PHONY : transmitter/fast
+
+# Convenience name for target.
+example_1/CMakeFiles/subscriber.dir/rule:
+	cd /home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 example_1/CMakeFiles/subscriber.dir/rule
+.PHONY : example_1/CMakeFiles/subscriber.dir/rule
+
+# Convenience name for target.
+subscriber: example_1/CMakeFiles/subscriber.dir/rule
+
+.PHONY : subscriber
+
+# fast build rule for target.
+subscriber/fast:
+	cd /home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/build && $(MAKE) -f example_1/CMakeFiles/subscriber.dir/build.make example_1/CMakeFiles/subscriber.dir/build
+.PHONY : subscriber/fast
+
 src/node_1.o: src/node_1.cpp.o
 
 .PHONY : src/node_1.o
@@ -432,6 +462,60 @@ src/node_1.cpp.s:
 	cd /home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/build && $(MAKE) -f example_1/CMakeFiles/test_node.dir/build.make example_1/CMakeFiles/test_node.dir/src/node_1.cpp.s
 .PHONY : src/node_1.cpp.s
 
+src/subscriber.o: src/subscriber.cpp.o
+
+.PHONY : src/subscriber.o
+
+# target to build an object file
+src/subscriber.cpp.o:
+	cd /home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/build && $(MAKE) -f example_1/CMakeFiles/subscriber.dir/build.make example_1/CMakeFiles/subscriber.dir/src/subscriber.cpp.o
+.PHONY : src/subscriber.cpp.o
+
+src/subscriber.i: src/subscriber.cpp.i
+
+.PHONY : src/subscriber.i
+
+# target to preprocess a source file
+src/subscriber.cpp.i:
+	cd /home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/build && $(MAKE) -f example_1/CMakeFiles/subscriber.dir/build.make example_1/CMakeFiles/subscriber.dir/src/subscriber.cpp.i
+.PHONY : src/subscriber.cpp.i
+
+src/subscriber.s: src/subscriber.cpp.s
+
+.PHONY : src/subscriber.s
+
+# target to generate assembly for a file
+src/subscriber.cpp.s:
+	cd /home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/build && $(MAKE) -f example_1/CMakeFiles/subscriber.dir/build.make example_1/CMakeFiles/subscriber.dir/src/subscriber.cpp.s
+.PHONY : src/subscriber.cpp.s
+
+src/transmitter.o: src/transmitter.cpp.o
+
+.PHONY : src/transmitter.o
+
+# target to build an object file
+src/transmitter.cpp.o:
+	cd /home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/build && $(MAKE) -f example_1/CMakeFiles/transmitter.dir/build.make example_1/CMakeFiles/transmitter.dir/src/transmitter.cpp.o
+.PHONY : src/transmitter.cpp.o
+
+src/transmitter.i: src/transmitter.cpp.i
+
+.PHONY : src/transmitter.i
+
+# target to preprocess a source file
+src/transmitter.cpp.i:
+	cd /home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/build && $(MAKE) -f example_1/CMakeFiles/transmitter.dir/build.make example_1/CMakeFiles/transmitter.dir/src/transmitter.cpp.i
+.PHONY : src/transmitter.cpp.i
+
+src/transmitter.s: src/transmitter.cpp.s
+
+.PHONY : src/transmitter.s
+
+# target to generate assembly for a file
+src/transmitter.cpp.s:
+	cd /home/nullbyte/Desktop/myGithub/ros_notes/catkin_ws/build && $(MAKE) -f example_1/CMakeFiles/transmitter.dir/build.make example_1/CMakeFiles/transmitter.dir/src/transmitter.cpp.s
+.PHONY : src/transmitter.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -439,12 +523,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... list_install_components"
+	@echo "... install"
+	@echo "... rebuild_cache"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... edit_cache"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_cpp"
@@ -458,12 +543,19 @@ help:
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... test_node"
+	@echo "... transmitter"
 	@echo "... install/strip"
+	@echo "... subscriber"
 	@echo "... install/local"
-	@echo "... install"
 	@echo "... src/node_1.o"
 	@echo "... src/node_1.i"
 	@echo "... src/node_1.s"
+	@echo "... src/subscriber.o"
+	@echo "... src/subscriber.i"
+	@echo "... src/subscriber.s"
+	@echo "... src/transmitter.o"
+	@echo "... src/transmitter.i"
+	@echo "... src/transmitter.s"
 .PHONY : help
 
 
